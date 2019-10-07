@@ -1,0 +1,53 @@
+<definitions name="TenantService" targetNamespace="http://www.steepsouth.com/wsdl/TenantService.wsdl" 
+  xmlns="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:tns="http://www.steepsouth.com/wsdl/TenantService.wsdl" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <message name="getTenantRequest">
+    <part name="tenantId" type="xsd:string"/>
+  </message>
+
+  <message name="getTenantResponse">
+    <part name="tenantId" type="xsd:string"/>
+    <part name="firstName" type="xsd:string"/>
+    <part name="lastName" type="xsd:string"/>
+    <part name="phone" type="xsd:integer"/>
+    <!-- 
+    <part name="numberOfFamilyMembers" type="xsd:integer"/>
+    <part name="streetAddress" type="xsd:string"/>
+    <part name="streetAddressLine2" type="xsd:string"/>
+    <part name="city" type="xsd:string"/>
+    <part name="state" type="xsd:string"/>
+    <part name="zipCode" type="xsd:integer"/>
+    <part name="country" type="xsd:string"/>
+    -->
+  </message>
+
+  <portType name="Tenant_PortType">
+    <operation name="getTenantList">
+      <input message="tns:getTenantRequest"/>
+      <output message="tns:getTenantResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="Tenant_Binding" type="tns:Tenant_PortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getTenantList">
+      <soap:operation soapAction="getTenantList"/>
+      <input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:steepsouth:tenantservice" use="encoded"/>
+      </input>
+      <output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:steepsouth:tenantservice" use="encoded"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="Tenant_Service">
+    <documentation>WSDL File for TenantService</documentation>
+    <port binding="tns:Tenant_Binding" name="Tenant_Port">
+      <soap:address location="http://localhost:3050/tenantsoapservice/" />
+    </port>
+  </service>
+</definitions>

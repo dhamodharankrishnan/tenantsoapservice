@@ -1,0 +1,24 @@
+{
+  "name": "tenantsoapservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node tenantservice.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhamodharankrishnan/tenantsoapservice.git"
+  },
+  "author": "Dhamodharan Krishnan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhamodharankrishnan/tenantsoapservice/issues"
+  },
+  "homepage": "https://github.com/dhamodharankrishnan/tenantsoapservice#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "soap": "^0.29.0"
+  }
+}
